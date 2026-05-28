@@ -11,7 +11,7 @@ session = fastf1.get_session(2024, 'Monza', 'R')
 session.load()
 
 # Pick your two drivers using their 3-letter codes
-driver1 = 'TSU'
+driver1 = 'RUS'
 driver2 = 'NOR'
 season = 2024;
 

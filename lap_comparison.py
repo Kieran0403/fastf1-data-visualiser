@@ -24,9 +24,13 @@ if driver1 not in valid_drivers:
 elif driver2 not in valid_drivers:
     print(f"Invalid choice: {driver2}")
 
-# Load a session - pick any 2024 race
-session = fastf1.get_session(season, track, 'R')
-session.load()
+# Load a session - catch error if not a valirace or something unexcpected occured
+try:
+    session = fastf1.get_session(season, track, 'R')
+    session.load()
+except Exception as e:
+    print(f"Couldn't load sesssion: {e}")
+
 
 # Get their laps, dropping any outliers (safety car laps etc.)
 laps_d1 = session.laps.pick_driver(driver1).reset_index()

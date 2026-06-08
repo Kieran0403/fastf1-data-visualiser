@@ -1,8 +1,7 @@
 import fastf1
 import fastf1.plotting
 import matplotlib.pyplot as plt
-from team_colours import get_colour
-from lap_comparison import valid_drivers
+from team_colours import get_colour, driver_colours_2024, driver_colours_2025
 
 fastf1.Cache.enable_cache('f1_cache')
 
@@ -36,3 +35,28 @@ fastest_d2 = session.laps.pick_driver(driver2).pick_fastest()
 # Get telemetry and add distance so plot by position on the track
 telemetry_d1 = fastest_d1.get_car_data().add_distance()
 telemetry_d2 = fastest_d2.get_car_data().add_distance()
+
+# Plot
+fig, axes = plt.subplots(3, 1, figsize=(12, 10), sharex=True)
+
+# Speed
+axes[0].plot(telemetry_d1['Distance'], telemetry_d1['Speed'], label=driver1, color=get_colour(driver1,season))
+axes[0].plot(telemetry_d2['Distance'], telemetry_d2['Speed'], label=driver2, color=get_colour(driver2,season))
+axes[0].set_ylabel('Speed (km/h)')
+axes[0].legend()
+
+# Throttle
+axes[1].plot(telemetry_d1['Distance'], telemetry_d1['Throttle'], label=driver1, color=get_colour(driver1,season))
+axes[1].plot(telemetry_d2['Distance'], telemetry_d2['Throttle'], label=driver2, color=get_colour(driver2,season))
+axes[1].set_ylabel('Throttle %')
+
+# Brake
+axes[2].plot(telemetry_d1['Distance'], telemetry_d1['Brake'], label=driver1, color=get_colour(driver1,season))
+axes[2].plot(telemetry_d2['Distance'], telemetry_d2['Brake'], label=driver2, color=get_colour(driver2,season))
+axes[2].set_ylabel('Brake')
+axes[2].set_xlabel('Distance (m)')
+
+fig.suptitle(f'Qualifying Telemetry: {driver1} vs {driver2} — {season} {track} GP')
+plt.tight_layout()
+plt.savefig('qualifying_telemetry.png', dpi=150)
+plt.show()

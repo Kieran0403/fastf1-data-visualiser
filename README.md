@@ -12,5 +12,8 @@ This project currently supports 2024 and 2025 season data. These are the seasons
 
 Team colours are also mapped per season to account for driver moves (exc. mid-season changes) and livery changes between years.
 
-### Example output 
+### Example output - lap_comparision.py
 <img width="1198" height="500" alt="Screenshot 2026-05-28 at 10 41 04" src="https://github.com/user-attachments/assets/29c3c96d-407c-4e9f-be98-f9aab47231b9" />
+
+### Example output - qualifying_telemetry.py
+<img width="720" height="600" alt="Screenshot 2026-06-08 at 10 40 37" src="https://github.com/user-attachments/assets/ee3114d0-638c-42d3-a2de-c87092d084ea" />

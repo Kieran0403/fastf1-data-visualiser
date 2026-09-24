@@ -21,7 +21,7 @@ if driver1 not in valid_drivers:
 elif driver2 not in valid_drivers:
     print(f"Invalid choice: {driver2}")
 
-# Load a session - catch error if not a valirace or something unexcpected occured
+# Load a session - catch error if not a valid race or unexpected error occured
 try:
     session = fastf1.get_session(season, track, 'Q') #Q for quali
     session.load()

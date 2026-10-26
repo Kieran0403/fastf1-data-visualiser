@@ -35,7 +35,6 @@ except Exception as e:
     sys.exit(f"Couldn't load sesssion: {e}")
     
 
-
 # Get their laps, dropping any outliers (e.g. safety car laps) with pick_quicklaps()
 laps_d1 = session.laps.pick_driver(driver1).pick_quicklaps().reset_index()
 laps_d2 = session.laps.pick_driver(driver2).pick_quicklaps().reset_index()

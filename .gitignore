@@ -217,3 +217,11 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 f1_cache/
+
+# macOS
+.DS_Store
+
+# Project-specific
+f1_cache/
+lap_comparison.png
+qualifying_telemetry.png

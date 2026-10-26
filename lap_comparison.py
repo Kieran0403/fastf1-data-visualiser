@@ -1,9 +1,10 @@
 import fastf1, fastf1.plotting
-import sys
+import sys, os
 import matplotlib.pyplot as plt
 from team_colours import get_colour,driver_colours_2024,driver_colours_2025
 
 # Enable the cache (saves re-downloading data)
+os.makedirs('f1_cache', exist_ok=True)
 fastf1.Cache.enable_cache('f1_cache')
 
 

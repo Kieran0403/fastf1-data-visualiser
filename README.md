@@ -62,3 +62,4 @@ Each script asks for:
 The chart is shown on screen and saved as `lap_comparison.png` or `qualifying_telemetry.png` in the project folder.
 
 > **Note:** the first run for a session can take a minute while FastF1 downloads the data. It's cached in `f1_cache/`, so repeat runs are much faster.
+> Unfortunatley, the FastF1 API now requires a F1 TV subscription to download new cache data.

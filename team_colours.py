@@ -28,7 +28,7 @@ driver_colours_2025={
     'ANT': '#27F4D2',  # Mercedes
     'RUS': '#27F4D2',
     'LEC': '#E8002D',  # Ferrari
-    'HAMI': '#E8002D',
+    'HAM': '#E8002D',
     'NOR': '#FF8000',  # McLaren
     'PIA': '#FF8000',
     'ALO': '#358C75',  # Aston Martin
@@ -36,7 +36,7 @@ driver_colours_2025={
     'GAS': '#0093CC',  # Alpine
     'COL': '#0093CC',
     'LAW': '#00E0D0',  # Racing Bulls
-    'HAJ': '#5E8FAA',
+    'HAD': '#5E8FAA',
     'BOR': '#C92D4B',  # Kick Sauber
     'HUL': '#C92D4B',
     'BEA': '#B6BABD',  # Haas

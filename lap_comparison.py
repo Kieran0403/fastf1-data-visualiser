@@ -3,7 +3,7 @@ import sys, os
 import matplotlib.pyplot as plt
 from team_colours import get_colour,driver_colours_2024,driver_colours_2025
 
-# Enable the cache (saves re-downloading data)
+# Enable the cache (saves re-downloading data) and make directory if its not there
 os.makedirs('f1_cache', exist_ok=True)
 fastf1.Cache.enable_cache('f1_cache')
 

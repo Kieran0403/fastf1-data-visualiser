@@ -10,29 +10,32 @@ fastf1.Cache.enable_cache('f1_cache')
 # Pick your two drivers using their 3-letter codes, along with track and the season + validate them
 track = input("Enter race/track (e.g. Monza): ").title()
 
-season = int(input("Enter year 2024/2025): "))
-if season not in (2024,2025):
-    sys.exit(f"Invalid season {season}")
+try:
+    season = int(input("Enter year (2024/2025): "))
+except ValueError:
+    sys.exit("Year must be a number.")
 
 driver1 = input("Enter driver 1 code (e.g. VER): ").upper()[:3] #Take first 3 characters and force upper case to validate
 driver2 = input("Enter driver 2 code (e.g. NOR): ").upper()[:3]
 
-valid_drivers = set(driver_colours_2024.keys()) | set(driver_colours_2025.keys())
-if driver1 not in valid_drivers:
-    sys.exit(f"Invalid choice: {driver1}")
-if driver2 not in valid_drivers:
-    sys.exit(f"Invalid choice: {driver2}")
+#Check if the drivers are in the season's driver list
+season_colours = {2024: driver_colours_2024, 2025: driver_colours_2025}[season]
+
+if driver1 not in season_colours:
+    sys.exit(f"{driver1} isn't in the {season} driver list")
+if driver2 not in season_colours:
+    sys.exit(f"{driver2} isn't in the {season} driver list")
 
 # Load a session - catch error if not a valid race or unexpected error occured
 try:
     session = fastf1.get_session(season, track, 'Q') #Q for quali
     session.load()
 except Exception as e:
-    sys.exit(f"Couldn't load sesssion: {e}")
+    sys.exit(f"Couldn't load session: {e}")
 
 # Get the fastest lap for each driver and validate them
-fastest_d1 = session.laps.pick_driver(driver1).pick_fastest()
-fastest_d2 = session.laps.pick_driver(driver2).pick_fastest()
+fastest_d1 = session.laps.pick_drivers(driver1).pick_fastest()
+fastest_d2 = session.laps.pick_drivers(driver2).pick_fastest()
 
 if fastest_d1 is None:
     sys.exit(f"No fast lap set in this session {driver1}")

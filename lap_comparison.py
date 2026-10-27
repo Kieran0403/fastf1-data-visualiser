@@ -20,13 +20,13 @@ if season not in (2024,2025):
 driver1 = input("Enter driver 1 code (e.g. VER): ").upper()[:3] #Take first 3 characters and force upper case to validate
 driver2 = input("Enter driver 2 code (e.g. NOR): ").upper()[:3]
 
-valid_drivers = set(driver_colours_2024.keys()) | set(driver_colours_2025.keys())
-if driver1 not in valid_drivers:
-    sys.exit(f"Invalid driver choice: {driver1}")
-    
-if driver2 not in valid_drivers:
-    sys.exit(f"Invalid driver choice: {driver2}")
-    
+#Check if the drivers are in the season's driver list
+season_colours = {2024: driver_colours_2024, 2025: driver_colours_2025}[season]
+
+if driver1 not in season_colours:
+    sys.exit(f"{driver1} isn't in the {season} driver list")
+if driver2 not in season_colours:
+    sys.exit(f"{driver2} isn't in the {season} driver list")
 
 # Load a session - catch error if not a valid race or unexpected error occured
 try:
@@ -37,8 +37,8 @@ except Exception as e:
     
 
 # Get their laps, dropping any outliers (e.g. safety car laps) with pick_quicklaps()
-laps_d1 = session.laps.pick_driver(driver1).pick_quicklaps().reset_index()
-laps_d2 = session.laps.pick_driver(driver2).pick_quicklaps().reset_index()
+laps_d1 = session.laps.pick_drivers(driver1).pick_quicklaps().reset_index()
+laps_d2 = session.laps.pick_drivers(driver2).pick_quicklaps().reset_index()
 
 # Convert lap times to seconds for easier plotting
 laps_d1['LapTimeSeconds'] = laps_d1['LapTime'].dt.total_seconds()

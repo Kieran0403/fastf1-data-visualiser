@@ -12,14 +12,17 @@ driver_colours_2024={
     'STR': '#358C75',
     'GAS': '#0093CC',  # Alpine
     'OCO': '#0093CC',
-    'LAW': '#00E0D0',  # AlphaTauri
+    'LAW': '#00E0D0',  # Racing Bulls
     'TSU': '#5E8FAA',
+    'RIC': '#00E0D0',
     'BOT': '#C92D4B',  # Kick Sauber
     'ZHO': '#C92D4B',
     'MAG': '#B6BABD',  # Haas
     'HUL': '#B6BABD',
+    'BEA': '#B6BABD',
     'ALB': '#64C4FF',  # Williams
-    'SAR': '#64C4FF'
+    'SAR': '#64C4FF',
+    'COL': '#64C4FF'
 }
 
 driver_colours_2025={
@@ -34,6 +37,7 @@ driver_colours_2025={
     'ALO': '#358C75',  # Aston Martin
     'STR': '#358C75',
     'GAS': '#0093CC',  # Alpine
+    'DOO': '#0093CC',
     'COL': '#0093CC',
     'LAW': '#00E0D0',  # Racing Bulls
     'HAD': '#5E8FAA',
